@@ -19,4 +19,8 @@ abstract class AppStyles {
     fontSize: 24.sp,
     fontWeight: FontWeight.normal,
   );
+  static TextStyle textRegular30 = TextStyle(
+    fontSize: 30.sp,
+    fontWeight: FontWeight.normal,
+  );
 }

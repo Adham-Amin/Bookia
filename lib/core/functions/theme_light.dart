@@ -13,6 +13,10 @@ ThemeData themeLight() {
       surface: AppColors.white,
       brightness: Brightness.light,
     ),
+    textTheme: TextTheme(
+      bodyMedium: AppStyles.textRegular14.copyWith(color: AppColors.black),
+      labelLarge: AppStyles.textRegular14.copyWith(color: AppColors.primary),
+    ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.bg,

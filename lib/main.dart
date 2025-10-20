@@ -18,13 +18,16 @@ class Bookia extends StatelessWidget {
       designSize: const Size(375, 812),
       splitScreenMode: true,
       minTextAdapt: true,
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        theme: themeLight(),
-        darkTheme: themeDark(),
-        onGenerateRoute: onGenerateRoute,
-        initialRoute: AppRoutes.welcomeView,
-      ),
+      builder: (context, child) {
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          themeMode: ThemeMode.dark,
+          theme: themeLight(),
+          darkTheme: themeDark(),
+          onGenerateRoute: onGenerateRoute,
+          initialRoute: AppRoutes.welcomeView,
+        );
+      },
     );
   }
 }

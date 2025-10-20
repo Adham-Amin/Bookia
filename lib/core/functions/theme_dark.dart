@@ -13,6 +13,10 @@ ThemeData themeDark() {
       surface: AppColors.darkBg,
       secondary: AppColors.grey,
     ),
+    textTheme: TextTheme(
+      bodyMedium: AppStyles.textRegular14.copyWith(color: AppColors.white),
+      labelLarge: AppStyles.textRegular14.copyWith(color: AppColors.primary),
+    ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
       fillColor: AppColors.darkCard,
