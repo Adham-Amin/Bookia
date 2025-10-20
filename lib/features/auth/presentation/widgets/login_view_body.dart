@@ -1,3 +1,4 @@
+import 'package:bookia/core/routes/app_routes.dart';
 import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/core/utils/app_styles.dart';
 import 'package:bookia/core/widgets/custom_button.dart';
@@ -29,9 +30,16 @@ class LoginViewBody extends StatelessWidget {
             HeightBox(16),
             Align(
               alignment: Alignment.centerRight,
-              child: Text(
-                'Forgot Password?',
-                style: AppStyles.textRegular14.copyWith(color: AppColors.grey),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, AppRoutes.forgotPasswordView);
+                },
+                child: Text(
+                  'Forgot Password?',
+                  style: AppStyles.textRegular14.copyWith(
+                    color: AppColors.grey,
+                  ),
+                ),
               ),
             ),
             HeightBox(32),
