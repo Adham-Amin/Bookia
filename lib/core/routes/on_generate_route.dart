@@ -5,6 +5,7 @@ import 'package:bookia/features/auth/presentation/views/login_view.dart';
 import 'package:bookia/features/auth/presentation/views/new_password_view.dart';
 import 'package:bookia/features/auth/presentation/views/otp_view.dart';
 import 'package:bookia/features/auth/presentation/views/register_view.dart';
+import 'package:bookia/features/main/main_view.dart';
 import 'package:bookia/features/welcome/presentation/view/welcome_view.dart';
 import 'package:flutter/material.dart';
 
@@ -19,9 +20,13 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
     case AppRoutes.forgotPasswordView:
       return MaterialPageRoute(builder: (_) => const ForgetPasswordView());
     case AppRoutes.otpView:
-      return MaterialPageRoute(builder: (_) => const OtpView());
+      return MaterialPageRoute(
+        builder: (_) => OtpView(email: settings.arguments as String),
+      );
     case AppRoutes.newPasswordView:
-      return MaterialPageRoute(builder: (_) => const NewPasswordView());
+      return MaterialPageRoute(
+        builder: (_) => NewPasswordView(code: settings.arguments as num),
+      );
     case AppRoutes.successView:
       var args = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
@@ -32,6 +37,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
           nextRoute: args['nextRoute'],
         ),
       );
+    case AppRoutes.mainView:
+      return MaterialPageRoute(builder: (_) => const MainView());
     default:
       return MaterialPageRoute(builder: (_) => const Scaffold());
   }

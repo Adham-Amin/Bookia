@@ -22,9 +22,25 @@ class AppAssets {
   /// assets/svgs/icon_apple.svg
   static const String svgsIconApple = "assets/svgs/icon_apple.svg";
 
+  /// Assets for svgsIconBookmark
+  /// assets/svgs/icon_bookmark.svg
+  static const String svgsIconBookmark = "assets/svgs/icon_bookmark.svg";
+
+  /// Assets for svgsIconCategory
+  /// assets/svgs/icon_category.svg
+  static const String svgsIconCategory = "assets/svgs/icon_category.svg";
+
   /// Assets for svgsIconGoogle
   /// assets/svgs/icon_google.svg
   static const String svgsIconGoogle = "assets/svgs/icon_google.svg";
+
+  /// Assets for svgsIconHome
+  /// assets/svgs/icon_home.svg
+  static const String svgsIconHome = "assets/svgs/icon_home.svg";
+
+  /// Assets for svgsIconProfile
+  /// assets/svgs/icon_profile.svg
+  static const String svgsIconProfile = "assets/svgs/icon_profile.svg";
 
   /// Assets for svgsLogo
   /// assets/svgs/logo.svg

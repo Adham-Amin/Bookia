@@ -1,11 +1,19 @@
+import 'package:bookia/core/di/service_locator.dart';
+import 'package:bookia/core/functions/execute_to_navigator.dart';
 import 'package:bookia/core/functions/theme_dark.dart';
 import 'package:bookia/core/functions/theme_light.dart';
-import 'package:bookia/core/routes/app_routes.dart';
 import 'package:bookia/core/routes/on_generate_route.dart';
+import 'package:bookia/core/services/custom_observer_bloc.dart';
+import 'package:bookia/core/services/shared_preferences_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  serverLocator();
+  await Prefs.init();
+  Bloc.observer = CustomObserverBloc();
   runApp(const Bookia());
 }
 
@@ -25,7 +33,7 @@ class Bookia extends StatelessWidget {
           theme: themeLight(),
           darkTheme: themeDark(),
           onGenerateRoute: onGenerateRoute,
-          initialRoute: AppRoutes.welcomeView,
+          initialRoute: executeToNavigator(),
         );
       },
     );

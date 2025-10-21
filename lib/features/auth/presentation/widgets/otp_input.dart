@@ -18,7 +18,7 @@ class OtpInput extends StatelessWidget {
         }
         return null;
       },
-      length: 4,
+      length: 6,
       onChanged: onChanged,
       cursorColor: AppColors.primary,
       keyboardType: TextInputType.number,
@@ -26,8 +26,8 @@ class OtpInput extends StatelessWidget {
       pinTheme: PinTheme(
         shape: PinCodeFieldShape.box,
         borderRadius: BorderRadius.circular(8),
-        fieldHeight: 60,
-        fieldWidth: 70,
+        fieldHeight: 48,
+        fieldWidth: 48,
         activeColor: AppColors.primary,
         selectedColor: AppColors.grey,
         inactiveColor: AppColors.border,

@@ -21,6 +21,7 @@ ThemeData themeLight() {
       filled: true,
       fillColor: AppColors.bg,
       hintStyle: AppStyles.textRegular16.copyWith(color: AppColors.grey),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.r),
         borderSide: const BorderSide(color: AppColors.border),

@@ -4,7 +4,7 @@ import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 
 class ApiService {
   final Dio _dio;
-  final String baseUrl = 'https://ecommerce.routemisr.com/api/v1';
+  final String baseUrl = 'https://codingarabic.online/api';
 
   ApiService(this._dio) {
     addInterceptors();

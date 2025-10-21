@@ -57,8 +57,6 @@ class SuccessView extends StatelessWidget {
   }
 }
 
-
-
 // Navigator.pushNamedAndRemoveUntil(
 //                   context,
 //                   AppRoutes.successView,

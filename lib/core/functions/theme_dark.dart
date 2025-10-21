@@ -21,6 +21,7 @@ ThemeData themeDark() {
       filled: true,
       fillColor: AppColors.darkCard,
       hintStyle: AppStyles.textRegular16.copyWith(color: AppColors.grey),
+      border: OutlineInputBorder(borderRadius: BorderRadius.circular(8.r)),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8.r),
         borderSide: const BorderSide(color: AppColors.grey),
