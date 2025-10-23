@@ -8,6 +8,9 @@ import 'package:bookia/features/category/domain/repo/category_repo.dart';
 import 'package:bookia/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:bookia/features/home/data/repos/home_repo_impl.dart';
 import 'package:bookia/features/home/domain/repos/home_repo.dart';
+import 'package:bookia/features/watchlist/data/data_sources/local_wishlist_data_source.dart';
+import 'package:bookia/features/watchlist/data/repos/wishlist_repo_impl.dart';
+import 'package:bookia/features/watchlist/domain/repos/wishlist_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
@@ -40,6 +43,16 @@ void serverLocator() {
   getIt.registerLazySingleton<CategoryRepo>(
     () => CategoryRepoImpl(
       categoryRemoteDataSource: getIt<CategoryRemoteDataSource>(),
+    ),
+  );
+
+  getIt.registerLazySingleton<LocalWishlistDataSource>(
+    () => LocalWishlistDataSourceImpl(),
+  );
+
+  getIt.registerLazySingleton<WishlistRepo>(
+    () => WishlistRepoImpl(
+      localWatchlistDataSource: getIt<LocalWishlistDataSource>(),
     ),
   );
 }
