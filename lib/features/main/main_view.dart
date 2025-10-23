@@ -1,9 +1,13 @@
+import 'package:bookia/core/di/service_locator.dart';
 import 'package:bookia/core/utils/app_assets.dart';
 import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/core/utils/app_styles.dart';
 import 'package:bookia/features/home/presentation/views/home_view.dart';
+import 'package:bookia/features/watchlist/domain/repos/wishlist_repo.dart';
+import 'package:bookia/features/watchlist/presentation/cubit/wishlist_cubit.dart';
 import 'package:bookia/features/watchlist/presentation/views/wishlist_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 
 class MainView extends StatefulWidget {
@@ -32,49 +36,58 @@ class MainViewState extends State<MainView> {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    return Scaffold(
-      body: IndexedStack(index: _currentIndex, children: _pages),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _currentIndex,
-        onTap: (index) => changeTab(index),
-        type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
-        showUnselectedLabels: false,
-        backgroundColor: isDark ? AppColors.darkCard : AppColors.white,
-        items: [
-          BottomNavigationBarItem(
-            icon: _navIcon(
-              AppAssets.svgsIconHome,
-              isActive: _currentIndex == 0,
-              isDark: isDark,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) =>
+              WishlistCubit(wishlistRepo: getIt<WishlistRepo>())
+                ..loadWatchlist(),
+        ),
+      ],
+      child: Scaffold(
+        body: IndexedStack(index: _currentIndex, children: _pages),
+        bottomNavigationBar: BottomNavigationBar(
+          currentIndex: _currentIndex,
+          onTap: (index) => changeTab(index),
+          type: BottomNavigationBarType.fixed,
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          backgroundColor: isDark ? AppColors.darkCard : AppColors.white,
+          items: [
+            BottomNavigationBarItem(
+              icon: _navIcon(
+                AppAssets.svgsIconHome,
+                isActive: _currentIndex == 0,
+                isDark: isDark,
+              ),
+              label: 'Home',
             ),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: _navIcon(
-              AppAssets.svgsIconBookmark,
-              isActive: _currentIndex == 1,
-              isDark: isDark,
+            BottomNavigationBarItem(
+              icon: _navIcon(
+                AppAssets.svgsIconBookmark,
+                isActive: _currentIndex == 1,
+                isDark: isDark,
+              ),
+              label: 'Wishlist',
             ),
-            label: 'Wishlist',
-          ),
-          BottomNavigationBarItem(
-            icon: _navIcon(
-              AppAssets.svgsIconCategory,
-              isActive: _currentIndex == 2,
-              isDark: isDark,
+            BottomNavigationBarItem(
+              icon: _navIcon(
+                AppAssets.svgsIconCategory,
+                isActive: _currentIndex == 2,
+                isDark: isDark,
+              ),
+              label: 'Cart',
             ),
-            label: 'Cart',
-          ),
-          BottomNavigationBarItem(
-            icon: _navIcon(
-              AppAssets.svgsIconProfile,
-              isActive: _currentIndex == 3,
-              isDark: isDark,
+            BottomNavigationBarItem(
+              icon: _navIcon(
+                AppAssets.svgsIconProfile,
+                isActive: _currentIndex == 3,
+                isDark: isDark,
+              ),
+              label: 'Profile',
             ),
-            label: 'Profile',
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

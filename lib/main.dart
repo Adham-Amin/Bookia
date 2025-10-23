@@ -6,8 +6,6 @@ import 'package:bookia/core/routes/on_generate_route.dart';
 import 'package:bookia/core/services/custom_observer_bloc.dart';
 import 'package:bookia/core/services/shared_preferences_service.dart';
 import 'package:bookia/features/home/domain/entities/book_entity.dart';
-import 'package:bookia/features/watchlist/domain/repos/wishlist_repo.dart';
-import 'package:bookia/features/watchlist/presentation/cubit/wishlist_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,22 +32,13 @@ class Bookia extends StatelessWidget {
       splitScreenMode: true,
       minTextAdapt: true,
       builder: (context, child) {
-        return MultiBlocProvider(
-          providers: [
-            BlocProvider(
-              create: (context) =>
-                  WishlistCubit(wishlistRepo: getIt<WishlistRepo>())
-                    ..loadWatchlist(),
-            ),
-          ],
-          child: MaterialApp(
-            debugShowCheckedModeBanner: false,
-            themeMode: ThemeMode.light,
-            theme: themeLight(),
-            darkTheme: themeDark(),
-            onGenerateRoute: onGenerateRoute,
-            initialRoute: executeToNavigator(),
-          ),
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          themeMode: ThemeMode.light,
+          theme: themeLight(),
+          darkTheme: themeDark(),
+          onGenerateRoute: onGenerateRoute,
+          initialRoute: executeToNavigator(),
         );
       },
     );
