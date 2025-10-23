@@ -12,6 +12,7 @@ ThemeData themeDark() {
       primary: AppColors.primary,
       surface: AppColors.darkBg,
       secondary: AppColors.grey,
+      surfaceTint: Colors.transparent,
     ),
     textTheme: TextTheme(
       bodyMedium: AppStyles.textRegular14.copyWith(color: AppColors.white),
@@ -31,12 +32,7 @@ ThemeData themeDark() {
         borderSide: const BorderSide(color: AppColors.primary),
       ),
     ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.darkBg,
-      elevation: 0,
-      titleTextStyle: AppStyles.textRegular24.copyWith(color: AppColors.white),
-      iconTheme: const IconThemeData(color: AppColors.white),
-    ),
+    appBarTheme: AppBarTheme(elevation: 0, backgroundColor: AppColors.darkBg),
     cardColor: const Color(0xFF1E1E1E),
   );
 }

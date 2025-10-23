@@ -1,3 +1,4 @@
+import 'package:bookia/core/routes/app_routes.dart';
 import 'package:bookia/core/widgets/book_card.dart';
 import 'package:bookia/core/widgets/height_and_width.dart';
 import 'package:bookia/features/home/domain/entities/book_entity.dart';
@@ -13,7 +14,16 @@ class NewArrivalsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TitleAndSeeAll(title: 'New Arrivals', onTap: () {}),
+        TitleAndSeeAll(
+          title: 'New Arrivals',
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              AppRoutes.booksView,
+              arguments: {'title': 'New Arrivals', 'books': books},
+            );
+          },
+        ),
         HeightBox(16),
         GridView.builder(
           shrinkWrap: true,

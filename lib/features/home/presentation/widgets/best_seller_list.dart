@@ -1,3 +1,4 @@
+import 'package:bookia/core/routes/app_routes.dart';
 import 'package:bookia/core/widgets/book_card.dart';
 import 'package:bookia/core/widgets/height_and_width.dart';
 import 'package:bookia/features/home/domain/entities/book_entity.dart';
@@ -13,7 +14,16 @@ class BestSellerList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        TitleAndSeeAll(title: 'Best Sellers', onTap: () {}),
+        TitleAndSeeAll(
+          title: 'Best Sellers',
+          onTap: () {
+            Navigator.pushNamed(
+              context,
+              AppRoutes.booksView,
+              arguments: {'title': 'Best Sellers', 'books': books},
+            );
+          },
+        ),
         HeightBox(16),
         SingleChildScrollView(
           physics: const BouncingScrollPhysics(),

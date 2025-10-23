@@ -12,6 +12,7 @@ ThemeData themeLight() {
       seedColor: AppColors.primary,
       surface: AppColors.white,
       brightness: Brightness.light,
+      surfaceTint: Colors.transparent,
     ),
     textTheme: TextTheme(
       bodyMedium: AppStyles.textRegular14.copyWith(color: AppColors.black),
@@ -31,11 +32,6 @@ ThemeData themeLight() {
         borderSide: const BorderSide(color: AppColors.primary),
       ),
     ),
-    appBarTheme: AppBarTheme(
-      backgroundColor: AppColors.white,
-      elevation: 0,
-      titleTextStyle: AppStyles.textRegular24.copyWith(color: AppColors.black),
-      iconTheme: const IconThemeData(color: AppColors.black),
-    ),
+    appBarTheme: AppBarTheme(elevation: 0, backgroundColor: AppColors.white),
   );
 }
