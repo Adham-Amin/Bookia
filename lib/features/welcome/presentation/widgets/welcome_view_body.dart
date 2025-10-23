@@ -13,6 +13,7 @@ class WelcomeViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Theme.of(context).brightness == Brightness.dark;
     return Stack(
       children: [
         Image.asset(
@@ -27,7 +28,12 @@ class WelcomeViewBody extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Spacer(flex: 2),
-              SvgPicture.asset(AppAssets.svgsLogo),
+              SvgPicture.asset(
+                AppAssets.svgsLogo,
+                colorFilter: isDark
+                    ? ColorFilter.mode(AppColors.white, BlendMode.srcIn)
+                    : null,
+              ),
               HeightBox(24),
               Text('Order Your Book Now!', style: AppStyles.textRegular20),
               Spacer(flex: 4),

@@ -1,6 +1,7 @@
 import 'package:bookia/core/utils/app_assets.dart';
 import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/core/utils/app_styles.dart';
+import 'package:bookia/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -15,7 +16,7 @@ class MainViewState extends State<MainView> {
   int _currentIndex = 0;
 
   List<Widget> get _pages => [
-    Center(child: Text('Home', style: AppStyles.textRegular20)),
+    HomeView(),
     Center(child: Text('Wishlist', style: AppStyles.textRegular20)),
     Center(child: Text('Cart', style: AppStyles.textRegular20)),
     Center(child: Text('Profile', style: AppStyles.textRegular20)),
