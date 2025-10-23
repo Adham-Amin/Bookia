@@ -1,5 +1,6 @@
 import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/core/utils/app_styles.dart';
+import 'package:bookia/core/widgets/height_and_width.dart';
 import 'package:bookia/core/widgets/wishlist_button.dart';
 import 'package:bookia/features/home/domain/entities/book_entity.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,7 @@ class WishlistCard extends StatelessWidget {
   Widget build(BuildContext context) {
     var isDark = Theme.of(context).brightness == Brightness.dark;
     return Container(
+      height: 140.h,
       padding: EdgeInsets.all(12.h),
       decoration: BoxDecoration(
         color: isDark ? AppColors.primary : AppColors.bgLight,
@@ -44,21 +46,21 @@ class WishlistCard extends StatelessWidget {
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                 ),
-                SizedBox(height: 8.h),
+                HeightBox(8),
                 Text(
                   book.category ?? 'Unknown',
                   style: AppStyles.textRegular14.copyWith(
                     color: isDark ? AppColors.white : AppColors.grey,
                   ),
                 ),
-                SizedBox(height: 8.h),
+                const Spacer(), // 👈 ده اللي هيخلي الرو يروح تحت
                 Row(
                   children: [
                     Text(
                       '\$${book.price ?? '0'}',
                       style: AppStyles.textRegular16,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     WishlistButton(book: book),
                   ],
                 ),
