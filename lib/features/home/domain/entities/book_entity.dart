@@ -23,7 +23,7 @@ class BookEntity {
     this.id = 0,
     this.image = '',
     this.title = '                ',
-    this.description = '',
+    this.description = '    ',
     this.category = '           ',
     this.price = '   ',
     this.priceAfterDiscount = 0,

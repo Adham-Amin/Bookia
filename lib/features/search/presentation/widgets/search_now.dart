@@ -1,4 +1,5 @@
 import 'package:bookia/core/utils/app_assets.dart';
+import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/core/utils/app_styles.dart';
 import 'package:bookia/core/widgets/height_and_width.dart';
 import 'package:flutter/material.dart';
@@ -12,10 +13,17 @@ class SearchNow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var isDark = Theme.of(context).brightness == Brightness.dark;
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SvgPicture.asset(AppAssets.svgsIconSearch, height: 80.h),
+        SvgPicture.asset(
+          AppAssets.svgsIconSearch,
+          colorFilter: isDark
+              ? ColorFilter.mode(AppColors.white, BlendMode.srcIn)
+              : null,
+          height: 80.h,
+        ),
         HeightBox(12),
         Text(
           title,

@@ -29,8 +29,8 @@ class LoadingGridBooks extends StatelessWidget {
           itemCount: 4,
           itemBuilder: (context, index) => BookCard(
             book: BookEntity(
-              title: '      ',
-              category: '      ',
+              title: '        ',
+              category: '        ',
               priceAfterDiscount: 1111,
             ),
           ),

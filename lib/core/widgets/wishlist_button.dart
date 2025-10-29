@@ -13,6 +13,7 @@ class WishlistButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isDark = Theme.of(context).brightness == Brightness.dark;
     return BlocBuilder<WishlistCubit, WishlistState>(
       builder: (context, state) {
         final isInWatchlist =
@@ -24,12 +25,12 @@ class WishlistButton extends StatelessWidget {
           child: Container(
             padding: EdgeInsets.all(8.w),
             decoration: BoxDecoration(
-              color: AppColors.black,
+              color: isDark ? AppColors.white : AppColors.black,
               borderRadius: BorderRadius.circular(8.r),
             ),
             child: Icon(
               isInWatchlist ? Icons.favorite : Icons.favorite_border,
-              color: AppColors.white,
+              color: isDark ? AppColors.black : AppColors.white,
             ),
           ),
         );

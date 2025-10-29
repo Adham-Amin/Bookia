@@ -5,8 +5,10 @@ import 'package:bookia/features/auth/presentation/views/login_view.dart';
 import 'package:bookia/features/auth/presentation/views/new_password_view.dart';
 import 'package:bookia/features/auth/presentation/views/otp_view.dart';
 import 'package:bookia/features/auth/presentation/views/register_view.dart';
+import 'package:bookia/features/book_details/presentation/views/book_details_view.dart';
 import 'package:bookia/features/books/presentation/views/books_view.dart';
 import 'package:bookia/features/category/presentation/views/category_view.dart';
+import 'package:bookia/features/home/domain/entities/book_entity.dart';
 import 'package:bookia/features/home/domain/entities/category_entity.dart';
 import 'package:bookia/features/main/main_view.dart';
 import 'package:bookia/features/search/presentation/views/search_view.dart';
@@ -55,6 +57,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case AppRoutes.searchView:
       return MaterialPageRoute(builder: (_) => SearchView());
+    case AppRoutes.bookDetailsView:
+      return MaterialPageRoute(
+        builder: (_) => BookDetailsView(book: settings.arguments as BookEntity),
+      );
     default:
       return MaterialPageRoute(builder: (_) => const Scaffold());
   }

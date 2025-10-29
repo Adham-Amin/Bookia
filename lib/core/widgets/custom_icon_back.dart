@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 class CustomIconBack extends StatelessWidget implements PreferredSizeWidget {
-  const CustomIconBack({super.key});
+  const CustomIconBack({super.key, this.action});
+
+  final Widget? action;
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +15,7 @@ class CustomIconBack extends StatelessWidget implements PreferredSizeWidget {
         onTap: () => Navigator.pop(context),
         child: SvgPicture.asset(AppAssets.svgsBack),
       ),
+      actions: [action ?? const SizedBox(), const SizedBox(width: 16)],
     );
   }
 

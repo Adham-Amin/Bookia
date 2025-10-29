@@ -53,11 +53,11 @@ class BookResponse {
 
   BookEntity toEntity() => BookEntity(
     id: id ?? 0,
-    title: name ?? '',
-    description: description ?? '',
-    price: price ?? '',
+    title: name ?? '     ',
+    description: description ?? '       ',
+    price: price ?? '    ',
     priceAfterDiscount: priceAfterDiscount ?? 0.0,
     image: image ?? '',
-    category: category ?? '',
+    category: category ?? '     ',
   );
 }

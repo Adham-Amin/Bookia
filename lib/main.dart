@@ -44,7 +44,7 @@ class Bookia extends StatelessWidget {
           ],
           child: MaterialApp(
             debugShowCheckedModeBanner: false,
-            themeMode: ThemeMode.light,
+            themeMode: ThemeMode.dark,
             theme: themeLight(),
             darkTheme: themeDark(),
             onGenerateRoute: onGenerateRoute,
