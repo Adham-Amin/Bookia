@@ -9,6 +9,7 @@ import 'package:bookia/features/books/presentation/views/books_view.dart';
 import 'package:bookia/features/category/presentation/views/category_view.dart';
 import 'package:bookia/features/home/domain/entities/category_entity.dart';
 import 'package:bookia/features/main/main_view.dart';
+import 'package:bookia/features/search/presentation/views/search_view.dart';
 import 'package:bookia/features/welcome/presentation/view/welcome_view.dart';
 import 'package:flutter/material.dart';
 
@@ -52,6 +53,8 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         builder: (_) =>
             CategoryView(category: settings.arguments as CategoryEntity),
       );
+    case AppRoutes.searchView:
+      return MaterialPageRoute(builder: (_) => SearchView());
     default:
       return MaterialPageRoute(builder: (_) => const Scaffold());
   }

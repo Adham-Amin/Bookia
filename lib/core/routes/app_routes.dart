@@ -9,4 +9,5 @@ abstract class AppRoutes {
   static const String mainView = '/mainView';
   static const String booksView = '/booksView';
   static const String categoryView = '/categoryView';
+  static const String searchView = '/searchView';
 }

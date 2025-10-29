@@ -4,15 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-class LoadingCategory extends StatelessWidget {
-  const LoadingCategory({super.key});
+class LoadingGridBooks extends StatelessWidget {
+  const LoadingGridBooks({super.key, this.isPadding = true});
+
+  final bool isPadding;
 
   @override
   Widget build(BuildContext context) {
     return Skeletonizer(
       enabled: true,
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 12.h),
+        padding: EdgeInsets.symmetric(
+          horizontal: isPadding ? 24.w : 0,
+          vertical: isPadding ? 12.h : 0,
+        ),
         child: GridView.builder(
           physics: BouncingScrollPhysics(),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(

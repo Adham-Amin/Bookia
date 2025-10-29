@@ -22,13 +22,12 @@ class CategoryView extends StatelessWidget {
             ..getBookByCategory(id: category.id),
       child: Scaffold(
         appBar: AppBar(
-          leading: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: SvgPicture.asset(AppAssets.svgsBack),
-              ),
+          centerTitle: true,
+          leading: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            child: GestureDetector(
+              onTap: () => Navigator.pop(context),
+              child: SvgPicture.asset(AppAssets.svgsBack),
             ),
           ),
           title: Text(category.name, style: AppStyles.textRegular24),

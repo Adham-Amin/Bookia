@@ -1,4 +1,5 @@
 import 'package:bookia/core/di/service_locator.dart';
+import 'package:bookia/core/routes/app_routes.dart';
 import 'package:bookia/core/utils/app_assets.dart';
 import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/features/home/domain/repos/home_repo.dart';
@@ -30,7 +31,9 @@ class HomeView extends StatelessWidget {
           ),
           actions: [
             IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, AppRoutes.searchView);
+              },
               icon: SvgPicture.asset(
                 AppAssets.svgsIconSearch,
                 colorFilter: ColorFilter.mode(

@@ -1,7 +1,7 @@
 import 'package:bookia/core/utils/app_styles.dart';
 import 'package:bookia/core/widgets/book_card.dart';
 import 'package:bookia/features/category/presentation/cubit/category_cubit.dart';
-import 'package:bookia/features/category/presentation/widgets/loading_category.dart';
+import 'package:bookia/core/widgets/loading_grid_books.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -34,7 +34,7 @@ class CategoryViewBody extends StatelessWidget {
             child: Text(state.message, style: AppStyles.textRegular16),
           );
         } else {
-          return LoadingCategory();
+          return LoadingGridBooks();
         }
       },
     );
