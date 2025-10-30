@@ -11,4 +11,6 @@ abstract class AppRoutes {
   static const String categoryView = '/categoryView';
   static const String searchView = '/searchView';
   static const String bookDetailsView = '/bookDetailsView';
+  static const String orderView = '/orderView';
+  static const String deleteAccountView = '/deleteAccountView';
 }

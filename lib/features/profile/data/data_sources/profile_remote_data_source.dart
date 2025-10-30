@@ -39,7 +39,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
 
   @override
   Future<void> deleteAccount({required String password}) async {
-    FormData data = FormData.fromMap({'password': password});
+    FormData data = FormData.fromMap({'current_password': password});
     await apiService.post(endPoint: '/delete-profile', data: data);
   }
 

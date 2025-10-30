@@ -28,7 +28,7 @@ class ApiService {
         onRequest: (options, handler) async {
           final token = await Prefs.getToken();
           if (token != null && token.isNotEmpty) {
-            options.headers['token'] = token;
+            options.headers['Authorization'] = 'Bearer $token';
           }
           return handler.next(options);
         },

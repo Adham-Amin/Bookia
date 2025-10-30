@@ -2,6 +2,7 @@ import 'package:bookia/core/utils/app_assets.dart';
 import 'package:bookia/core/utils/app_colors.dart';
 import 'package:bookia/core/utils/app_styles.dart';
 import 'package:bookia/features/home/presentation/views/home_view.dart';
+import 'package:bookia/features/profile/presentation/views/profile_view.dart';
 import 'package:bookia/features/watchlist/presentation/views/wishlist_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -20,7 +21,7 @@ class MainViewState extends State<MainView> {
     HomeView(),
     WishlistView(),
     Center(child: Text('Cart', style: AppStyles.textRegular20)),
-    Center(child: Text('Profile', style: AppStyles.textRegular20)),
+    ProfileView(),
   ];
 
   void changeTab(int index) {
