@@ -18,6 +18,8 @@ class AuthResponse {
   Map<String, dynamic> toJson() => {'user': user?.toJson(), 'token': token};
 
   UserEntity toEntity() => UserEntity(
+    address: user?.address ?? '',
+    phone: user?.phone ?? '',
     id: user?.id ?? 0,
     image: user?.image ?? '',
     name: user?.name ?? '',

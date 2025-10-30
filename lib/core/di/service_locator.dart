@@ -8,6 +8,9 @@ import 'package:bookia/features/category/domain/repo/category_repo.dart';
 import 'package:bookia/features/home/data/data_sources/home_remote_data_source.dart';
 import 'package:bookia/features/home/data/repos/home_repo_impl.dart';
 import 'package:bookia/features/home/domain/repos/home_repo.dart';
+import 'package:bookia/features/profile/data/data_sources/profile_remote_data_source.dart';
+import 'package:bookia/features/profile/data/repos/profile_repo_impl.dart';
+import 'package:bookia/features/profile/domain/repos/profile_repo.dart';
 import 'package:bookia/features/search/data/data_sources/search_remote_data_source.dart';
 import 'package:bookia/features/search/data/repo/search_repo_impl.dart';
 import 'package:bookia/features/search/domain/repo/search_repo.dart';
@@ -66,5 +69,15 @@ void serverLocator() {
   getIt.registerLazySingleton<SearchRepo>(
     () =>
         SearchRepoImpl(searchRemoteDataSource: getIt<SearchRemoteDataSource>()),
+  );
+
+  getIt.registerLazySingleton<ProfileRemoteDataSource>(
+    () => ProfileRemoteDataSourceImpl(apiService: getIt<ApiService>()),
+  );
+
+  getIt.registerLazySingleton<ProfileRepo>(
+    () => ProfileRepoImpl(
+      profileRemoteDataSource: getIt<ProfileRemoteDataSource>(),
+    ),
   );
 }
