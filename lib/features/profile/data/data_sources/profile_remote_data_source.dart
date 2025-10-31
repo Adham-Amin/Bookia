@@ -58,7 +58,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   Future<UserEntity> updateInfo({
     required UpdateInfoRequest updateInfoRequest,
   }) async {
-    var response = await apiService.put(
+    var response = await apiService.post(
       endPoint: '/update-profile',
       data: updateInfoRequest.toJson(),
     );

@@ -11,8 +11,10 @@ import 'package:bookia/features/category/presentation/views/category_view.dart';
 import 'package:bookia/features/home/domain/entities/book_entity.dart';
 import 'package:bookia/features/home/domain/entities/category_entity.dart';
 import 'package:bookia/features/main/main_view.dart';
+import 'package:bookia/features/profile/presentation/views/change_password_view.dart';
 import 'package:bookia/features/profile/presentation/views/delete_account_view.dart';
 import 'package:bookia/features/profile/presentation/views/my_orders_view.dart';
+import 'package:bookia/features/profile/presentation/views/update_info_view.dart';
 import 'package:bookia/features/search/presentation/views/search_view.dart';
 import 'package:bookia/features/welcome/presentation/view/welcome_view.dart';
 import 'package:flutter/material.dart';
@@ -67,6 +69,10 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       return MaterialPageRoute(builder: (_) => MyOrdersView());
     case AppRoutes.deleteAccountView:
       return MaterialPageRoute(builder: (_) => DeleteAccountView());
+    case AppRoutes.editProfileView:
+      return MaterialPageRoute(builder: (_) => UpdateInfoView());
+    case AppRoutes.changePasswordView:
+      return MaterialPageRoute(builder: (_) => ChangePasswordView());
     default:
       return MaterialPageRoute(builder: (_) => const Scaffold());
   }

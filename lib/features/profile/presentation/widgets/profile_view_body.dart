@@ -5,9 +5,14 @@ import 'package:bookia/features/profile/presentation/widgets/profile_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class ProfileViewBody extends StatelessWidget {
+class ProfileViewBody extends StatefulWidget {
   const ProfileViewBody({super.key});
 
+  @override
+  State<ProfileViewBody> createState() => _ProfileViewBodyState();
+}
+
+class _ProfileViewBodyState extends State<ProfileViewBody> {
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -26,10 +31,24 @@ class ProfileViewBody extends StatelessWidget {
               icon: Icons.list,
             ),
             HeightBox(16.h),
-            ProfileItem(onTap: () {}, title: 'Edit Profile', icon: Icons.edit),
+            ProfileItem(
+              onTap: () async {
+                var result = await Navigator.pushNamed(
+                  context,
+                  AppRoutes.editProfileView,
+                );
+                if (result == true) {
+                  setState(() {});
+                }
+              },
+              title: 'Edit Profile',
+              icon: Icons.edit,
+            ),
             HeightBox(16.h),
             ProfileItem(
-              onTap: () {},
+              onTap: () {
+                Navigator.pushNamed(context, AppRoutes.changePasswordView);
+              },
               title: 'Change Password',
               icon: Icons.lock,
             ),

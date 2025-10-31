@@ -1,4 +1,5 @@
 import 'package:bookia/core/errors/failure.dart';
+import 'package:bookia/core/services/shared_preferences_service.dart';
 import 'package:bookia/features/auth/domain/entities/user_entity.dart';
 import 'package:bookia/features/profile/data/data_sources/profile_remote_data_source.dart';
 import 'package:bookia/features/profile/data/models/requests/update_info_request.dart';
@@ -71,6 +72,7 @@ class ProfileRepoImpl extends ProfileRepo {
       var data = await profileRemoteDataSource.updateInfo(
         updateInfoRequest: updateInfoRequest,
       );
+      await Prefs.setUser(data);
       return Right(data);
     } catch (e) {
       if (e is DioException) {

@@ -2,6 +2,9 @@ import 'package:bookia/core/services/api_service.dart';
 import 'package:bookia/features/auth/data/data_sources/auth_remote_data_source.dart';
 import 'package:bookia/features/auth/data/repo/auth_repo_impl.dart';
 import 'package:bookia/features/auth/domain/repos/auth_repo.dart';
+import 'package:bookia/features/cart/data/data_sources/cart_remote_data_source.dart';
+import 'package:bookia/features/cart/data/repos/cart_repo_impl.dart';
+import 'package:bookia/features/cart/domain/repos/cart_repo.dart';
 import 'package:bookia/features/category/data/data_sources/category_remote_data_source.dart';
 import 'package:bookia/features/category/data/repos/category_repo_impl.dart';
 import 'package:bookia/features/category/domain/repo/category_repo.dart';
@@ -79,5 +82,13 @@ void serverLocator() {
     () => ProfileRepoImpl(
       profileRemoteDataSource: getIt<ProfileRemoteDataSource>(),
     ),
+  );
+
+  getIt.registerLazySingleton<CartRemoteDataSource>(
+    () => CartRemoteDataSourceImpl(apiService: getIt<ApiService>()),
+  );
+
+  getIt.registerLazySingleton<CartRepo>(
+    () => CartRepoImpl(cartRemoteDataSource: getIt<CartRemoteDataSource>()),
   );
 }

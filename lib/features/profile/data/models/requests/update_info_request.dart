@@ -14,8 +14,8 @@ class UpdateInfoRequest {
   }
 
   Map<String, dynamic> toJson() => {
-    if (name != null) 'name': name,
-    if (address != null) 'address': address,
-    if (phone != null) 'phone': phone,
+    if (name != null && name!.isNotEmpty) 'name': name,
+    if (address != null && address!.isNotEmpty) 'address': address,
+    if (phone != null && phone!.isNotEmpty) 'phone': phone,
   };
 }
