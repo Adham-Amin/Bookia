@@ -6,7 +6,7 @@ import 'package:bookia/core/routes/on_generate_route.dart';
 import 'package:bookia/core/services/custom_observer_bloc.dart';
 import 'package:bookia/core/services/shared_preferences_service.dart';
 import 'package:bookia/features/cart/domain/repos/cart_repo.dart';
-import 'package:bookia/features/cart/presentation/cubit/cart_cubit.dart';
+import 'package:bookia/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:bookia/features/home/domain/entities/book_entity.dart';
 import 'package:bookia/features/watchlist/domain/repos/wishlist_repo.dart';
 import 'package:bookia/features/watchlist/presentation/cubit/wishlist_cubit.dart';

@@ -7,6 +7,7 @@ import 'package:bookia/features/auth/presentation/views/otp_view.dart';
 import 'package:bookia/features/auth/presentation/views/register_view.dart';
 import 'package:bookia/features/book_details/presentation/views/book_details_view.dart';
 import 'package:bookia/features/books/presentation/views/books_view.dart';
+import 'package:bookia/features/cart/presentation/views/place_order_view.dart';
 import 'package:bookia/features/category/presentation/views/category_view.dart';
 import 'package:bookia/features/home/domain/entities/book_entity.dart';
 import 'package:bookia/features/home/domain/entities/category_entity.dart';
@@ -69,6 +70,11 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
       );
     case AppRoutes.orderView:
       return MaterialPageRoute(builder: (_) => MyOrdersView());
+    case AppRoutes.placeOrderView:
+      return MaterialPageRoute(
+        builder: (_) =>
+            PlaceOrderView(totalPrice: settings.arguments as dynamic),
+      );
     case AppRoutes.deleteAccountView:
       return MaterialPageRoute(builder: (_) => DeleteAccountView());
     case AppRoutes.editProfileView:

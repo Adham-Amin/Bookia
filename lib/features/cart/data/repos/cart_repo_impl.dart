@@ -1,5 +1,6 @@
 import 'package:bookia/core/errors/failure.dart';
 import 'package:bookia/features/cart/data/data_sources/cart_remote_data_source.dart';
+import 'package:bookia/features/cart/data/model/request/place_order_request.dart';
 import 'package:bookia/features/cart/domain/entities/cart_entity.dart';
 import 'package:bookia/features/cart/domain/repos/cart_repo.dart';
 import 'package:dartz/dartz.dart';
@@ -64,6 +65,38 @@ class CartRepoImpl extends CartRepo {
         quantity: quantity,
       );
       return right(data.toEntity());
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> checkout() async {
+    try {
+      await cartRemoteDataSource.checkout();
+      return right(null);
+    } catch (e) {
+      if (e is DioException) {
+        return left(ServerFailure.fromDioException(e));
+      } else {
+        return left(ServerFailure(e.toString()));
+      }
+    }
+  }
+
+  @override
+  Future<Either<Failure, void>> placeOrder({
+    required PlaceOrderRequest placeOrderRequest,
+  }) async {
+    try {
+      await cartRemoteDataSource.placeOrder(
+        placeOrderRequest: placeOrderRequest,
+      );
+      return right(null);
     } catch (e) {
       if (e is DioException) {
         return left(ServerFailure.fromDioException(e));

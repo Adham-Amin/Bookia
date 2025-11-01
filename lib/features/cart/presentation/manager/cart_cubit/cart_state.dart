@@ -11,8 +11,6 @@ final class CartInitial extends CartState {}
 
 final class CartLoading extends CartState {}
 
-final class CartLoadingUpdate extends CartState {}
-
 final class CartSuccess extends CartState {
   final CartEntity cart;
   const CartSuccess({required this.cart});

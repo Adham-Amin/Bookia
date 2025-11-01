@@ -1,4 +1,4 @@
-import 'package:bookia/features/cart/presentation/cubit/cart_cubit.dart';
+import 'package:bookia/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:bookia/features/cart/presentation/widgets/cart_empty.dart';
 import 'package:bookia/features/cart/presentation/widgets/cart_list.dart';
 import 'package:bookia/features/cart/presentation/widgets/cart_loading.dart';

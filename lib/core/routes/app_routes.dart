@@ -15,4 +15,5 @@ abstract class AppRoutes {
   static const String deleteAccountView = '/deleteAccountView';
   static const String editProfileView = '/editProfileView';
   static const String changePasswordView = '/changePasswordView';
+  static const String placeOrderView = '/placeOrderView';
 }

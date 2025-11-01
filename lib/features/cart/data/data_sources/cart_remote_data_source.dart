@@ -1,11 +1,15 @@
 import 'package:bookia/core/services/api_service.dart';
 import 'package:bookia/features/cart/data/model/cart_response/cart_response.dart';
+import 'package:bookia/features/cart/data/model/request/place_order_request.dart';
 
 abstract class CartRemoteDataSource {
   Future<CartResponse> getCart();
   Future<CartResponse> addToCart({required num bookId});
   Future<CartResponse> removeFromCart({required num bookId});
   Future<CartResponse> updateCart({required num bookId, required num quantity});
+
+  Future<void> checkout();
+  Future<void> placeOrder({required PlaceOrderRequest placeOrderRequest});
 }
 
 class CartRemoteDataSourceImpl implements CartRemoteDataSource {
@@ -46,5 +50,18 @@ class CartRemoteDataSourceImpl implements CartRemoteDataSource {
       data: {'cart_item_id': bookId, 'quantity': quantity},
     );
     return CartResponse.fromJson(response['data']);
+  }
+
+  @override
+  Future<void> checkout() async {
+    await apiService.get(endPoint: '/checkout');
+  }
+
+  @override
+  Future<void> placeOrder({required PlaceOrderRequest placeOrderRequest}) {
+    return apiService.post(
+      endPoint: '/place-order',
+      data: placeOrderRequest.toJson(),
+    );
   }
 }

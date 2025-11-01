@@ -4,7 +4,7 @@ import 'package:bookia/core/utils/app_styles.dart';
 import 'package:bookia/core/widgets/custom_snack_bar.dart';
 import 'package:bookia/core/widgets/height_and_width.dart';
 import 'package:bookia/features/cart/domain/entities/cart_item_entity.dart';
-import 'package:bookia/features/cart/presentation/cubit/cart_cubit.dart';
+import 'package:bookia/features/cart/presentation/manager/cart_cubit/cart_cubit.dart';
 import 'package:bookia/features/cart/presentation/widgets/icon_buttom_cart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
