@@ -1,6 +1,6 @@
 import 'package:bookia/core/utils/app_assets.dart';
 import 'package:bookia/core/utils/app_colors.dart';
-import 'package:bookia/core/utils/app_styles.dart';
+import 'package:bookia/features/cart/presentation/views/cart_view.dart';
 import 'package:bookia/features/home/presentation/views/home_view.dart';
 import 'package:bookia/features/profile/presentation/views/profile_view.dart';
 import 'package:bookia/features/watchlist/presentation/views/wishlist_view.dart';
@@ -9,6 +9,9 @@ import 'package:flutter_svg/svg.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});
+
+  static final GlobalKey<MainViewState> mainViewKey =
+      GlobalKey<MainViewState>();
 
   @override
   State<MainView> createState() => MainViewState();
@@ -20,7 +23,7 @@ class MainViewState extends State<MainView> {
   List<Widget> get _pages => [
     HomeView(),
     WishlistView(),
-    Center(child: Text('Cart', style: AppStyles.textRegular20)),
+    CartView(),
     ProfileView(),
   ];
 

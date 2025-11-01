@@ -38,6 +38,7 @@ class CartCubit extends Cubit<CartState> {
   }
 
   Future<void> updateCart({required num bookId, required num quantity}) async {
+    emit(CartLoadingUpdate());
     final result = await cartRepo.updateCart(
       bookId: bookId,
       quantity: quantity,

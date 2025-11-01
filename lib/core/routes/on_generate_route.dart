@@ -48,7 +48,9 @@ Route<dynamic> onGenerateRoute(RouteSettings settings) {
         ),
       );
     case AppRoutes.mainView:
-      return MaterialPageRoute(builder: (_) => const MainView());
+      return MaterialPageRoute(
+        builder: (_) => MainView(key: MainView.mainViewKey),
+      );
     case AppRoutes.booksView:
       var args = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(

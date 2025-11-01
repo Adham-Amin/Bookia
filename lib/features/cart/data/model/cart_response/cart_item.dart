@@ -54,6 +54,7 @@ class CartItem {
 
   CartItemEntity toEntity() => CartItemEntity(
     id: itemId ?? 0,
+    idProduct: itemProductId ?? 0,
     image: itemProductImage ?? '',
     name: itemProductName ?? '',
     price: itemProductPriceAfterDiscount ?? 0,
